@@ -10,4 +10,4 @@ stages:
   jobs:
     - template: matrix-template.yml
       parameters:
-        matrix: ${{ fromYaml(file('matrix.yml')).matrix }}
+        matrix: ${{ fromYaml(file('matrices/demo-matrix.yml')).matrix }}
