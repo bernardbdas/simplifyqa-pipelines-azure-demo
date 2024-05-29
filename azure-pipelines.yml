@@ -1,7 +1,7 @@
 resources:
   repositories:
     - repository: self
-    
+
 stages:
   - stage: Build
     jobs:
@@ -34,3 +34,4 @@ stages:
             APPURL: $(APPURL)
             THRESHOLD: $(THRESHOLD)
             VERBOSE: $(VERBOSE)
+            
