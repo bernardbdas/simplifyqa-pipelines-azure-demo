@@ -5,8 +5,25 @@ pool: default
 
 steps:
 - task: simplifyqa-pipeline-executor@1
+  displayName: Pipeline-1
   inputs:
-    EXECTOKEN: 'U2FsdGVkX18vNvppyUmS19uMWvt4w7nhGUCamNBrzHSNya15wLPIadLUmd7LDeI8z9N93wG7Murb5D2UxTr0SA=='
-    APPURL: 'https://simplifyqa.app'
-    THRESHOLD: 20
+    EXECTOKEN: U2FsdGVkX18vNvppyUmS19uMWvt4w7nhGUCamNBrzHSNya15wLPIadLUmd7LDeI8z9N93wG7Murb5D2UxTr0SA==
+    APPURL: https://simplifyqa.app
+    THRESHOLD: 100.00
+    VERBOSE: true
+
+- task: simplifyqa-pipeline-executor@1
+  displayName: Pipeline-2
+  inputs:
+    EXECTOKEN: U2FsdGVkX18vNvppyUmS19uMWvt4w7nhGUCamNBrzHSNya15wLPIadLUmd7LDeI8z9N93wG7Murb5D2UxTr0SA==
+    APPURL: https://simplifyqa.app
+    THRESHOLD: 100.00
+    VERBOSE: true
+
+- task: simplifyqa-pipeline-executor@1
+  displayName: Pipeline-3
+  inputs:
+    EXECTOKEN: U2FsdGVkX18vNvppyUmS19uMWvt4w7nhGUCamNBrzHSNya15wLPIadLUmd7LDeI8z9N93wG7Murb5D2UxTr0SA==
+    APPURL: https://simplifyqa.app
+    THRESHOLD: 100.00
     VERBOSE: true
