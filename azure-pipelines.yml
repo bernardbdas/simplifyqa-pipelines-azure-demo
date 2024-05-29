@@ -5,7 +5,7 @@ jobs:
     pool: default
     strategy:
       maxParallel: 2
-      matrix: $[ resources.repositories.matrix.yml ]
+      matrix: $[ resources.repositories.matrix ]
 
     steps:
     - task: simplifyqa-pipeline-executor@1
