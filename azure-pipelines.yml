@@ -1,17 +1,13 @@
+trigger:
+- main
 
-jobs:   
-  - job: execute
-    timeoutInMinutes: 0
-    pool: default
-    strategy:
-      maxParallel: 2
-      matrix: $[ resources.repositories.matrix ]
+resources:
+  repositories:
+    - repository: self
 
-    steps:
-    - task: simplifyqa-pipeline-executor@1
-      displayName: SimplifyQA Pipeline Executor Task
-      inputs:
-        EXECTOKEN: $(EXECTOKEN)
-        APPURL: $(APPURL)
-        THRESHOLD: $(THRESHOLD)
-        VERBOSE: $(VERBOSE)
+stages:
+- stage: Build
+  jobs:
+    - template: matrix-template.yml
+      parameters:
+        matrix: ${{ fromYaml(file('matrix.yml')).matrix }}
