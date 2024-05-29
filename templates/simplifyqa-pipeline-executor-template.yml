@@ -1,0 +1,18 @@
+parameters:
+  matrix: {}
+
+jobs:
+  - job: execute
+    timeoutInMinutes: 0
+    pool: default
+    strategy:
+      maxParallel: 2
+      matrix: ${{ parameters.matrix }}
+    steps:
+      - task: simplifyqa-pipeline-executor@1
+        displayName: SimplifyQA Pipeline Executor Task
+        inputs:
+          EXECTOKEN: $(EXECTOKEN)
+          APPURL: $(APPURL)
+          THRESHOLD: $(THRESHOLD)
+          VERBOSE: $(VERBOSE)
