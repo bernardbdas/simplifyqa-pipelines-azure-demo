@@ -31,7 +31,7 @@ jobs:
           VERBOSE: true
     steps:
     - task: simplifyqa-pipeline-executor@1
-      displayName: Pipeline-1
+      displayName: simplifyqa-pipeline-executor-task
       inputs:
         EXECTOKEN: $(EXECTOKEN)
         APPURL: $(APPURL)
