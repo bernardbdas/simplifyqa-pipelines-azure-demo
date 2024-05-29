@@ -1,13 +1,36 @@
-trigger:
-- main
-
 resources:
   repositories:
     - repository: self
-
+    
 stages:
-- stage: Build
-  jobs:
-    - template: matrix-template.yml
-      parameters:
-        matrix: ${{ fromYaml(file('matrices/demo-matrix.yml')).matrix }}
+  - stage: Build
+    jobs:
+      - job: execute
+        timeoutInMinutes: 0
+        pool: default
+        strategy:
+          maxParallel: 2
+          matrix:
+            Pipeline_1:
+              EXECTOKEN: U2FsdGVkX18vNvppyUmS19uMWvt4w7nhGUCamNBrzHSNya15wLPIadLUmd7LDeI8z9N93wG7Murb5D2UxTr0SA==
+              APPURL: https://simplifyqa.app
+              THRESHOLD: 100
+              VERBOSE: true
+            Pipeline_2:
+              EXECTOKEN: U2FsdGVkX18vNvppyUmS19uMWvt4w7nhGUCamNBrzHSNya15wLPIadLUmd7LDeI8z9N93wG7Murb5D2UxTr0SA==
+              APPURL: https://simplifyqa.app
+              THRESHOLD: 100
+              VERBOSE: true
+            Pipeline_3:
+              EXECTOKEN: U2FsdGVkX18vNvppyUmS19uMWvt4w7nhGUCamNBrzHSNya15wLPIadLUmd7LDeI8z9N93wG7Murb5D2UxTr0SA==
+              APPURL: https://simplifyqa.app
+              THRESHOLD: 100
+              VERBOSE: true
+        steps:
+        - task: simplifyqa-pipeline-executor@1
+          displayName: Simplifyqa Pipeline Executor Task
+          inputs:
+            EXECTOKEN: $(EXECTOKEN)
+            APPURL: $(APPURL)
+            THRESHOLD: $(THRESHOLD)
+            VERBOSE: $(VERBOSE)
