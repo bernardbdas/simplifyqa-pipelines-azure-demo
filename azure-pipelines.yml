@@ -12,8 +12,8 @@ stages:
           maxParallel: 3
           matrix:
             Pipeline_1:
-              EXECTOKEN: U2FsdGVkX18vNvppyUmS19uMWvt4w7nhGUCamNBrzHSNya15wLPIadLUmd7LDeI8z9N93wG7Murb5D2UxTr0SA==
-              APPURL: https://simplifyqa.app
+              EXECTOKEN: U2FsdGVkX187mNvbkfRRdMv1hg+htb9LO3M2o3i3HjrLohUWV5u/XKY7zZNlwuwtRfULisSQbTUJ2ZXfjnQKDg==
+              APPURL: https://simplifyqa.nhsinc.com
               THRESHOLD: 100
               VERBOSE: true
             Pipeline_2:
