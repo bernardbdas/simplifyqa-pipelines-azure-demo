@@ -1,0 +1,9 @@
+pool:
+  vmImage: ubuntu-latest
+steps:
+- task: simplifyqa-pipeline-executor@1
+  inputs:
+    EXECTOKEN: 'U2FsdGVkX18vNvppyUmS19uMWvt4w7nhGUCamNBrzHSNya15wLPIadLUmd7LDeI8z9N93wG7Murb5D2UxTr0SA=='
+    APPURL: 'https://simplifyqa.app'
+    THRESHOLD: 20
+    VERBOSE: true
