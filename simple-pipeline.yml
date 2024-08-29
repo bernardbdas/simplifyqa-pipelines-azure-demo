@@ -1,8 +1,7 @@
-pool:
-  vmImage: ubuntu-latest
-  
+pool: Default    
 steps:
   - task: simplifyqa-pipeline-executor@1
+    displayName: Simplifyqa Pipeline Executor Task
     inputs:
       EXECTOKEN: 'U2FsdGVkX1/RK6wgb/tBGEmqX+B9Dps5hMJ3VAJIyVBpuxPgxO/pS3ZMvgEbThG+F3nIjQU8y85Vq1EXC8N0+w=='
       APPURL: 'https://simplifyqa.app'
