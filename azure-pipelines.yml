@@ -1,23 +1,22 @@
-# resources:
-#   repositories:
-#     - repository: self
+resources:
+  repositories:
+    - repository: self
 
-# stages:
-  # - stage: Build
-  #   jobs:
-  #     - job: execute
-  #       timeoutInMinutes: 0
-  #       pool:
-  #         vmImage: ubuntu-latest
-        # strategy:
-        #   maxParallel: 3
-        #   matrix:
-        #     Pipeline_1:
-        #       EXECTOKEN: U2FsdGVkX187mNvbkfRRdMv1hg+htb9LO3M2o3i3HjrLohUWV5u/XKY7zZNlwuwtRfULisSQbTUJ2ZXfjnQKDg==
-        #       APPURL: https://simplifyqa.nhsinc.com
-        #       THRESHOLD: 100
-        #       VERBOSE: true
-        #     # Pipeline_2:
+stages:
+  - stage: Build
+    jobs:
+      - job: execute
+        timeoutInMinutes: 0
+        pool: default
+        strategy:
+          maxParallel: 3
+          matrix:
+            Pipeline_1:
+              EXECTOKEN: U2FsdGVkX187mNvbkfRRdMv1hg+htb9LO3M2o3i3HjrLohUWV5u/XKY7zZNlwuwtRfULisSQbTUJ2ZXfjnQKDg==
+              APPURL: https://simplifyqa.nhsinc.com
+              THRESHOLD: 100
+              VERBOSE: true
+            # Pipeline_2:
             #   EXECTOKEN: U2FsdGVkX18vNvppyUmS19uMWvt4w7nhGUCamNBrzHSNya15wLPIadLUmd7LDeI8z9N93wG7Murb5D2UxTr0SA==
             #   APPURL: https://simplifyqa.app
             #   THRESHOLD: 100
@@ -27,24 +26,12 @@
             #   APPURL: https://simplifyqa.app
             #   THRESHOLD: 100
             #   VERBOSE: true
-        # steps:
-        # - task: simplifyqa-pipeline-executor@1
-        #   displayName: Simplifyqa Pipeline Executor Task
-        #   inputs:
-        #     EXECTOKEN: $(EXECTOKEN)
-        #     APPURL: $(APPURL)
-        #     THRESHOLD: $(THRESHOLD)
-        #     VERBOSE: $(VERBOSE)
-
-pool:
-  vmImage: ubuntu-latest
-
-steps:
-- task: simplifyqa-pipeline-executor@1
-  displayName: Simplifyqa Pipeline Executor Task
-  inputs:
-    EXECTOKEN: 'U2FsdGVkX18vNvppyUmS19uMWvt4w7nhGUCamNBrzHSNya15wLPIadLUmd7LDeI8z9N93wG7Murb5D2UxTr0SA=='
-    APPURL: 'https://simplifyqa.app'
-    THRESHOLD: 20
-    VERBOSE: true
+        steps:
+        - task: simplifyqa-pipeline-executor@1
+          displayName: Simplifyqa Pipeline Executor Task
+          inputs:
+            EXECTOKEN: $(EXECTOKEN)
+            APPURL: $(APPURL)
+            THRESHOLD: $(THRESHOLD)
+            VERBOSE: $(VERBOSE)
             
