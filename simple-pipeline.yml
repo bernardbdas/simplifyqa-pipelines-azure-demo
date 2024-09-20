@@ -1,9 +1,8 @@
 pool: qa   
 steps:
-  - task: simplifyqa-pipeline-executor@1
-    displayName: Simplifyqa Pipeline Executor Task
-    inputs:
-      EXECTOKEN: 'U2FsdGVkX1+erKet1Lu0x2sswHpvVA3zHu/5qVC2kq3kkZE041DvrODq9QGIp9GOlk5UGkCIJmiVIJIGSSi2TA=='
-      APPURL: 'https://qa.simplifyqa.app'
-      THRESHOLD: 10
-      VERBOSE: true
+- task: simplifyqa-pipeline-executor@1
+  inputs:
+    EXECTOKEN: 'U2FsdGVkX1+erKet1Lu0x2sswHpvVA3zHu/5qVC2kq3kkZE041DvrODq9QGIp9GOlk5UGkCIJmiVIJIGSSi2TA=='
+    APPURL: 'https://qa.simplifyqa.app'
+    THRESHOLD: 10
+    VERBOSE: true
