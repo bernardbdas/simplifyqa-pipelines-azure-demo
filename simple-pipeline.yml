@@ -1,9 +1,31 @@
+parameters:
+  - name: pipelineId
+    type: number
+    default: 149
+    displayName: "Pipeline ID"
+  - name: apiKey
+    type: string
+    default: ""
+    displayName: "API Key"
+  - name: apiUrl
+    type: string
+    default: "https://app.simplifyqa.ai"
+    displayName: "API URL"
+  - name: threshold
+    type: number
+    default: 100
+    displayName: "Threshold"
+  - name: verbose
+    type: boolean
+    default: false
+    displayName: "Verbose Logging"
+
 pool: QA
 steps:
-- task: simplifyqa-pipeline-executor-v2@2
-  inputs:
-    PIPELINEID: 149
-    APIKEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2Rldi5zaW1wbGlmeXFhLmNvbSIsImN1c3RvbWVySWQiOjQ5LCJjb21wYW55TmFtZSI6IlNRQSBUZXN0IiwibGljZW5zZV90eXBlIjpbIndlYiIsImFuZHJvaWQiLCJpb3MiLCJBUEkiLCJkYiJdLCJpbnN0YWxsZXJVcmwiOiJodHRwczovL2Rldi5zaW1wbGlmeXFhLmNvbS9pbnN0YWxsZXItc2VydmljZSIsInVzZXJJZCI6NCwiaWF0IjoxNzM5Nzc0ODAyLCJleHAiOjE3NzEzMzI0MDJ9.dQxxC2-JDjkUhcovBwUcrsmh0V2glHmNs_3jJsxhwW0'
-    APIURL: 'https://dev.simplifymycareer.com'
-    THRESHOLD: 100
-    VERBOSE: true
+  - task: simplifyqa-pipeline-executor-v2@2
+    inputs:
+      PIPELINEID: ${{ parameters.pipelineId }}
+      APIKEY: ${{ parameters.apiKey }}
+      APIURL: ${{ parameters.apiUrl }}
+      THRESHOLD: ${{ parameters.threshold }}
+      VERBOSE: ${{ parameters.verbose }}
